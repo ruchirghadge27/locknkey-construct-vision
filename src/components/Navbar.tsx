@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Phone } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, DollarSign, HelpCircle, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -24,10 +24,9 @@ const Navbar = () => {
   ];
 
   const moreItems = [
-    { name: 'Pricing', path: '/pricing' },
-    { name: 'FAQs', path: '/faqs' },
-    { name: 'Why Us?', path: '/why-us' },
-    { name: 'Contact Us', path: '/contact-us' },
+    { name: 'Pricing', path: '/pricing', icon: DollarSign, description: 'View our rates' },
+    { name: 'FAQs', path: '/faqs', icon: HelpCircle, description: 'Common questions' },
+    { name: 'Why Us?', path: '/why-us', icon: Star, description: 'Our advantages' },
   ];
 
   return (
@@ -59,22 +58,26 @@ const Navbar = () => {
               <DropdownMenuTrigger asChild>
                 <Button 
                   variant="ghost" 
-                  className="text-sm font-medium text-foreground hover:text-primary flex items-center space-x-1"
+                  className="text-sm font-medium text-foreground hover:text-primary flex items-center space-x-1 transition-colors"
                 >
                   <span>More</span>
                   <ChevronDown className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-40">
+              <DropdownMenuContent align="end" className="w-56 bg-background border border-border shadow-construction">
                 {moreItems.map((item) => (
-                  <DropdownMenuItem key={item.name} asChild>
+                  <DropdownMenuItem key={item.name} asChild className="group cursor-pointer">
                     <Link 
                       to={item.path}
-                      className={`w-full ${
-                        isActive(item.path) ? 'text-primary' : 'text-foreground'
-                      }`}
+                      className="flex items-center p-3 hover:bg-secondary transition-colors"
                     >
-                      {item.name}
+                      <item.icon className="mr-3 h-4 w-4 text-primary group-hover:text-construction-orange transition-colors" />
+                      <div>
+                        <div className={`font-medium ${isActive(item.path) ? 'text-primary' : 'text-foreground'}`}>
+                          {item.name}
+                        </div>
+                        <div className="text-xs text-muted-foreground">{item.description}</div>
+                      </div>
                     </Link>
                   </DropdownMenuItem>
                 ))}
@@ -110,7 +113,7 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col space-y-3">
-              {[...navItems, ...moreItems].map((item) => (
+              {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
@@ -122,6 +125,27 @@ const Navbar = () => {
                   {item.name}
                 </Link>
               ))}
+              {moreItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className={`text-sm font-medium transition-colors hover:text-primary ${
+                    isActive(item.path) ? 'text-primary' : 'text-foreground'
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <Link
+                to="/contact-us"
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  isActive('/contact-us') ? 'text-primary' : 'text-foreground'
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact Us
+              </Link>
               <div className="pt-2 border-t border-border">
                 <Button asChild className="w-full">
                   <Link to="/contact-us" onClick={() => setIsMenuOpen(false)}>

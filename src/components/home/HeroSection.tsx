@@ -30,43 +30,43 @@ const HeroSection = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button asChild size="lg" className="text-lg px-8 py-6">
-              <Link to="/contact-us" className="flex items-center space-x-2">
-                <span>Get Free Quote</span>
+              <Link to="/projects" className="flex items-center space-x-2">
+                <span>View Our Projects</span>
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </Button>
             
             <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6 bg-white/10 border-white/30 text-white hover:bg-white/20">
-              <Link to="/projects" className="flex items-center space-x-2">
-                <span>View Projects</span>
+              <Link to="/services" className="flex items-center space-x-2">
+                <span>Our Services</span>
               </Link>
             </Button>
           </div>
 
-          {/* Trust Indicators */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div className="flex items-center justify-center space-x-3 text-white/90">
-              <Award className="h-8 w-8 text-construction-orange" />
-              <div>
-                <div className="text-2xl font-bold">12+</div>
-                <div className="text-sm">Years Experience</div>
-              </div>
+          {/* Core Values */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <div className="flex flex-col items-center text-center text-white/90">
+              <Award className="h-10 w-10 text-construction-orange mb-3" />
+              <div className="text-lg font-semibold">Integrity</div>
+              <div className="text-sm opacity-80">Honest & Transparent</div>
             </div>
             
-            <div className="flex items-center justify-center space-x-3 text-white/90">
-              <Users className="h-8 w-8 text-construction-orange" />
-              <div>
-                <div className="text-2xl font-bold">300+</div>
-                <div className="text-sm">Projects Completed</div>
-              </div>
+            <div className="flex flex-col items-center text-center text-white/90">
+              <Users className="h-10 w-10 text-construction-orange mb-3" />
+              <div className="text-lg font-semibold">Quality Craftsmanship</div>
+              <div className="text-sm opacity-80">Excellence in Every Detail</div>
             </div>
             
-            <div className="flex items-center justify-center space-x-3 text-white/90">
-              <Calendar className="h-8 w-8 text-construction-orange" />
-              <div>
-                <div className="text-2xl font-bold">100%</div>
-                <div className="text-sm">On-Time Delivery</div>
-              </div>
+            <div className="flex flex-col items-center text-center text-white/90">
+              <Calendar className="h-10 w-10 text-construction-orange mb-3" />
+              <div className="text-lg font-semibold">Timely Delivery</div>
+              <div className="text-sm opacity-80">On Schedule, Every Time</div>
+            </div>
+
+            <div className="flex flex-col items-center text-center text-white/90">
+              <ArrowRight className="h-10 w-10 text-construction-orange mb-3" />
+              <div className="text-lg font-semibold">Client-Centered</div>
+              <div className="text-sm opacity-80">Your Vision, Our Priority</div>
             </div>
           </div>
         </div>
