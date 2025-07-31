@@ -1,25 +1,17 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-// 👉 Replace this with your repo name
-const repoName = 'locknkey-construct-vision'
-
-export default defineConfig({
-  base: `/${locknkey-construct-vision}/`, // 👈 super important for GitHub Pages!
-  plugins: [react()],
-})
-
 {
   "name": "vite_react_shadcn_ts",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://ruchirghadge27.github.io/locknkey-construct-vision",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -89,6 +81,7 @@ export default defineConfig({
     "tailwindcss": "^3.4.11",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
-    "vite": "^5.4.1"
+    "vite": "^5.4.1",
+    "gh-pages": "^6.0.0"
   }
 }
