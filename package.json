@@ -1,4 +1,13 @@
-"homepage": "https://ruchirghadge27.github.io/locknkey-construct-vision",
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// 👉 Replace this with your repo name
+const repoName = 'locknkey-construct-vision'
+
+export default defineConfig({
+  base: `/${locknkey-construct-vision}/`, // 👈 super important for GitHub Pages!
+  plugins: [react()],
+})
 
 {
   "name": "vite_react_shadcn_ts",
