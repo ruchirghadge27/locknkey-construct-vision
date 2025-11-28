@@ -21,6 +21,7 @@ const Navbar = () => {
     { name: 'Services', path: '/services' },
     { name: 'Projects', path: '/projects' },
     { name: 'Gallery', path: '/gallery' },
+    { name: 'Packages', path: '/construction-packages' },
   ];
 
   const moreItems = [
